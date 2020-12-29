@@ -1,16 +1,64 @@
 <template>
- <Logos />
+ <!-- <Logos /> -->
+ <div id="app">
+   <div class="container">
+     <div class="row header mb-5 p-3">
+       <div class="col-lg-12">
+         <h2>To Do List</h2>
+       </div>
+     </div>
+     <div class="row content">
+       <div class="col-lg-12">
+         <div class="pekerjaan-rumah">
+          <div class="tugas" v-for="tugasSaya in tugas" v-bind:key="tugasSaya.id">
+            <p class="text-secondary">{{ tugasSaya.namaTugas}}</p>
+          </div>
+        </div>
+       </div>
+     </div>
+   </div>
+   
+   
+ </div>
 </template>
 
 <script>
-import Logos from './components/Logos.vue'
+// import Logos from './components/Logos.vue'
+
+//atau bisa taro di main.js library nya
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default {
   name: 'App',
+  data:function(){
+    return {
+      tugas : [
+        {
+          id: 1,
+          namaTugas: "Mengerjakan PR",
+
+        },
+        {
+          id:2,
+          namaTugas: "Menyapu Rumah"
+        },
+        {
+          id:3,
+          namaTugas: "Membersihkan Kasur"
+        },
+        {
+          id:4,
+          namaTugas: "Tidur"
+        }
+      ]
+    }
+  },
   components: {
-    Logos
+    // Logos
   }
 }
+
+
 </script>
 
 <style>
@@ -22,5 +70,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.header{
+  background: #1abc9c;
+}
+
+.header h2 {
+  margin: 0;
+  color:white
 }
 </style>
