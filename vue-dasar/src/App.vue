@@ -16,7 +16,10 @@
              <div class="form-check">
               <input class="form-check-input" onclick="" type="checkbox" value="" v-bind:id="`todo-`+tugasSaya.id">
               <!-- setiap pengambilan data dari v-for gunakan v-bind: terus sesuaikan dengan javascript biasa (ini brarti id nya todo-id id dari si data jsonnya)-->
-              <label class="form-check-label item" v-bind:for="`todo-`+tugasSaya.id">
+              <label class="form-check-label item" v-bind:class="{'item-completed':tugasSaya.isDone}" v-bind:for="`todo-`+tugasSaya.id">
+                <!-- conditional rendering vue js, untuk membuat 1 statment pada interface, ini kalo true warna bakalan berubah jadi yg gak beres
+                gakan nambahin class nya
+                 -->
                 {{tugasSaya.namaTugas}}
               </label>
             </div>
@@ -45,19 +48,22 @@ export default {
         {
           id: 1,
           namaTugas: "Mengerjakan PR",
-
+          isDone:false
         },
         {
           id:2,
-          namaTugas: "Menyapu Rumah"
+          namaTugas: "Menyapu Rumah",
+          isDone:false
         },
         {
           id:3,
-          namaTugas: "Membersihkan Kasur"
+          namaTugas: "Membersihkan Kasur",
+          isDone:false
         },
         {
           id:4,
-          namaTugas: "Tidur"
+          namaTugas: "Tidur",
+          isDone:false
         }
       ]
     }
@@ -92,5 +98,9 @@ export default {
 
 .tugas .item {
   font-size:20px
+}
+
+.item-completed {
+color: #1abc9c;
 }
 </style>
