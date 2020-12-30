@@ -13,16 +13,10 @@
            <div class="row">
             <div class="tugas text-left mb-4 col-lg-12" v-for="tugasSaya in tugas" v-bind:key="tugasSaya.id">
               <!-- v-for untuk looping data v bind:key untuk menentukan data berdasarkan apa -->
-             <div class="form-check">
-              <input class="form-check-input" onclick="" type="checkbox" value="" v-bind:id="`todo-`+tugasSaya.id">
-              <!-- setiap pengambilan data dari v-for gunakan v-bind: terus sesuaikan dengan javascript biasa (ini brarti id nya todo-id id dari si data jsonnya)-->
-              <label class="form-check-label item" v-bind:class="{'item-completed':tugasSaya.isDone}" v-bind:for="`todo-`+tugasSaya.id">
-                <!-- conditional rendering vue js, untuk membuat 1 statment pada interface, ini kalo true warna bakalan berubah jadi yg gak beres
-                gakan nambahin class nya
-                 -->
-                {{tugasSaya.namaTugas}}
-              </label>
-            </div>
+            
+            <!-- pashing melempar data  -->
+            <ItemTugas v-bind:tugasSaya="tugasSaya"/>
+            <!-- melempar data ke ItemTugas.vue -->
           </div>
           </div>
         </div>
@@ -39,6 +33,8 @@
 
 //atau bisa taro di main.js library nya
 import 'bootstrap/dist/css/bootstrap.css';
+// import ItemTugas from './components/ItemTugas.vue';
+import ItemTugas from './components/ItemTugas.vue'
 
 export default {
   name: 'App',
@@ -70,6 +66,7 @@ export default {
   },
   components: {
     // Logos
+    ItemTugas
   }
 }
 
