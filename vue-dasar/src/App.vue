@@ -10,8 +10,17 @@
      <div class="row content">
        <div class="col-lg-12">
          <div class="pekerjaan-rumah">
-          <div class="tugas" v-for="tugasSaya in tugas" v-bind:key="tugasSaya.id">
-            <p class="text-secondary">{{ tugasSaya.namaTugas}}</p>
+           <div class="row">
+            <div class="tugas text-left mb-4 col-lg-12" v-for="tugasSaya in tugas" v-bind:key="tugasSaya.id">
+              <!-- v-for untuk looping data v bind:key untuk menentukan data berdasarkan apa -->
+             <div class="form-check">
+              <input class="form-check-input" onclick="" type="checkbox" value="" v-bind:id="`todo-`+tugasSaya.id">
+              <!-- setiap pengambilan data dari v-for gunakan v-bind: terus sesuaikan dengan javascript biasa (ini brarti id nya todo-id id dari si data jsonnya)-->
+              <label class="form-check-label item" v-bind:for="`todo-`+tugasSaya.id">
+                {{tugasSaya.namaTugas}}
+              </label>
+            </div>
+          </div>
           </div>
         </div>
        </div>
@@ -79,5 +88,9 @@ export default {
 .header h2 {
   margin: 0;
   color:white
+}
+
+.tugas .item {
+  font-size:20px
 }
 </style>
