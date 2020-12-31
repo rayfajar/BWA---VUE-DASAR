@@ -1,7 +1,9 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <h1 class="mb-5">Build With Angga Vue Dasar</h1>
+    <router-link to="/">To Do List</router-link> |
+    <router-link to="/logos">Logos</router-link> |
+    <router-link to="/profile">Profile</router-link>
   </div>
   <router-view/>
 </template>
